@@ -5,26 +5,25 @@ import Container from '@/components/main/index';
 
 export const locatorMatches = [
 	'mimic',
-
 	'wrapper',
 	'contacts',
 	'content',
 	'picture',
 	'title',
 	'warning',
-
 	'teaser',
+	'hidden',
 ];
 
 const response = require(`../responses/teaser-2.json`);
 const items = response.result.body.direct.ads;
 
-const locator = new Locator({
+export const locator = new Locator({
 	enable: true,
 	match: locatorMatches,
 });
 
-const transform = locator.transform.bind(locator);
+export const transform = locator.transform.bind(locator);
 
 const getElementByXpath = path =>
 	document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
